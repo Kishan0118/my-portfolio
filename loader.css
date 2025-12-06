@@ -1,0 +1,5 @@
+/* Loader styles for projects page (kept small and scoped) */
+#projects-loader{position:relative;margin:18px 0 28px;display:flex;align-items:center;justify-content:center;gap:12px;color:#cfe8f5}
+#projects-loader .spinner{width:38px;height:38px;border:4px solid rgba(255,255,255,0.15);border-top-color:#98c1d9;border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#projects-loader .loader-text{font-size:16px;color:#e0fbfc}

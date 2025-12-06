@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loader.css">
+    <!-- <base href="http://localhost:8080/"> -->
+    <title>Portfolio - Projects</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date());
+        gtag('config', 'G-8T8GW906N4', { 'anonymize_ip': true });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <h1>*Kis<span>han.</span></h1>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active-link">projects</li>
+                    <li><a href="experience.html">Experience</a></li>
+                </ul>
+            </div>
+            <a href="contact.html" class="btn">Contact</a>
+        </header>
+
+        <div class="main-content">
+            <div class="projects-section">
+                <div class="line"></div>
+                <h1>My <span>Projects</span></h1>
+                
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="websites">Websites</button>
+                    <button class="filter-btn" data-filter="android">Android</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="automation">Automation</button>
+                </div>
+
+                <!-- Loader placeholder; loader fragment injected from `loader.html` -->
+                <div id="projects-loader-placeholder"></div>
+
+                <div class="projects-grid" id="projects-grid">
+                    <div class="project-card websites" data-category="websites">
+                        <img src="/image/placeholder.png" alt="Project Screenshot">
+                        <div class="card-content">
+                            <h3>Project Name Title</h3>
+                            <p class="tech-stack">*Tech:* HTML, CSS, React, Firebase</p>
+                            <p class="description">A brief description of the project highlighting its main feature or purpose.</p>
+                            <div class="card-links">
+                                <a href="#" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
+                                <a href="#" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                                <a href="view_project.html?id=1" class="btn view-more">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+            </div>
+        </div>
+        <div class="social">
+             <div class="social-link"><a href="..."><i class="fa-brands fa-instagram"></i></a></div>
+             <div class="social-link"><a href="..."><i class="fa-brands fa-linkedin"></i></a></div>
+             <div class="social-link"><i class="fa-brands fa-twitter"></i></div>
+             <div class="social-link"><a href="..."><i class="fa-brands fa-telegram"></i></a></div>
+             <div class="social-link"><a href="..."><i class="fa-brands fa-github"></i></a></div>
+        </div>
+    </div>
+
+    <script src="loader-loader.js" defer></script>
+    <script src="projects.js" defer></script>
+    <script src="footer-script.js"></script>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="footer-loader.js"></script>
+
+</body>
+</html>

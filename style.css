@@ -164,7 +164,7 @@ html, body {
     height: 100%;
     object-fit: cover;  /* Ensures the image covers the circle without distortion */
     object-position: center;
-    padding-right:50px ; /* Ensures the image is centered */
+    padding-right:30px ; /* Ensures the image is centered */
 }
 
 @keyframes anim {

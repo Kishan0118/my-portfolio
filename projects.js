@@ -10,7 +10,7 @@ async function fetchProjects() {
         // show loader immediately when starting fetch
         if (typeof showLoader === 'function') showLoader();
         // आपका Java Spring Boot API Endpoint
-        const apiUrl = 'http://localhost:8080/api/projects'; 
+        const apiUrl = 'https://kishanbackend.onrender.com/api/projects'; 
         
         const response = await fetch(apiUrl); 
         
@@ -87,8 +87,8 @@ function renderProjects(projectsToRender) {
         // use it as-is; otherwise assume it's served from the frontend static `/image` path
         // on the frontend server or from the backend under `/image`.
         const imageUrl = firstScreenshot
-            ? (firstScreenshot.startsWith('http') ? firstScreenshot : `${firstScreenshot}`)
-            : '/image/placeholder.jpg';
+    ? firstScreenshot.replace("http://localhost:8080", "https://kishanbackend.onrender.com").trim()
+    : "https://kishanbackend.onrender.com/image/placeholder.png";
         
         console.log(`Final imageUrl for ${project.name}:`, imageUrl);
 

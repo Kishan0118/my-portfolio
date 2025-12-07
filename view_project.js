@@ -40,7 +40,7 @@ const detailedProjectsData = [
         category: "android",
         tech: ["Java", "Android SDK", "SQLite"],
         description: "A simple, yet powerful task management application for daily productivity.",
-        screenshots: ["/image/androidapp.jpg", "/image/android_app_screen2.jpg"],
+        screenshots: ["https://kishanbackend.onrender.com/image/androidapp.jpg", "/image/android_app_screen2.jpg"],
         liveLink: "#",
         githubLink: "#",
         apkLink: "http://localhost:8080/image/androidapp.apk"
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (projectId) {
         // Try fetching the project from the backend API first
-        const apiUrl = `http://localhost:8080/api/projects/${encodeURIComponent(projectId)}`;
+        const apiUrl = `https://kishanbackend.onrender.com/api/projects/${encodeURIComponent(projectId)}`;
 
         fetch(apiUrl)
             .then(resp => {

@@ -60,7 +60,7 @@ function renderProject(project) {
     setProjectLink(document.getElementById('github-link'), project.githubLink);
 
     const screenshots = Array.isArray(project.screenshots)
-        ? project.screenshots.map(safeProjectUrl).filter(Boolean)
+        ? project.screenshots.map(window.resolvePortfolioImageUrl).filter(Boolean)
         : [];
     const mainImage = document.getElementById('main-screenshot');
     const gallery = document.getElementById('screenshot-gallery');

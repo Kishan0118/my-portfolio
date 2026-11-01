@@ -27,7 +27,7 @@ function createProjectCard(project) {
     card.dataset.category = category;
 
     const screenshot = Array.isArray(project.screenshots)
-        ? safeExternalUrl(project.screenshots[0])
+        ? window.resolvePortfolioImageUrl(project.screenshots[0])
         : null;
 
     if (screenshot) {

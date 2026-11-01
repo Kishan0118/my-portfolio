@@ -24,7 +24,27 @@ function setProjectLink(element, value) {
 }
 
 function renderProject(project) {
-    document.title = `${project.name || 'Project details'} | Kishan Kumar`;
+    const projectName = project.name || 'Project details';
+    const pageTitle = `${projectName} | Kishan Kumar`;
+    const pageUrl = new URL(window.location.href);
+    if (project.id !== undefined && project.id !== null) {
+        pageUrl.searchParams.set('id', String(project.id));
+    }
+
+    document.title = pageTitle;
+    document.querySelector('link[rel="canonical"]').href = pageUrl.href;
+    document.querySelector('meta[name="description"]').content =
+        (project.description || `Explore ${projectName}, a software project by Kishan Kumar.`)
+            .replace(/\s+/g, ' ')
+            .trim()
+            .slice(0, 160);
+    document.querySelector('meta[property="og:title"]').content = pageTitle;
+    document.querySelector('meta[property="og:description"]').content =
+        document.querySelector('meta[name="description"]').content;
+    document.querySelector('meta[property="og:url"]').content = pageUrl.href;
+    document.querySelector('meta[name="twitter:title"]').content = pageTitle;
+    document.querySelector('meta[name="twitter:description"]').content =
+        document.querySelector('meta[name="description"]').content;
     document.getElementById('project-title').textContent = project.name || 'Untitled project';
     document.getElementById('project-description').textContent =
         project.description || 'A detailed project description is not available yet.';

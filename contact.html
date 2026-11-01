@@ -3,105 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <meta name="description" content="Contact Kishan Kumar about software development roles, projects, and collaboration.">
+    <meta name="theme-color" content="#293241">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Contact - Kishan Kumar</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date());
-        gtag('config', 'G-8T8GW906N4', { 'anonymize_ip': true });
-    </script>
+    <title>Contact | Kishan Kumar</title>
 </head>
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">
-                <h1>*Kis<span>han.</span></h1>
-            </div>
-            <div class="nav-links">
+            <div class="logo"><h1>*Kis<span>han.</span></h1></div>
+            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="experience.html">Experience</a></li>
-                    
                 </ul>
-            </div>
-            <a href="contact.html" class="btn">Contact</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </header>
+        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
 
-        <main class="main-content">
-            <section class="contact-section" style="width:1400px;margin:60px auto;padding-bottom:80px;">
-                <h1 style="color:#98c1d9;font-size:42px;margin-bottom:20px;">Get In Touch</h1>
-                <p style="color:#e0fbfc;max-width:900px;margin-bottom:30px;">I'd love to hear about your project or collaboration opportunity. Use the form to send a message or reach me directly via email or phone.</p>
-                <p style="color:#cfe8f5;max-width:900px;margin-bottom:24px;">Use the form below or contact me directly via email or phone. I usually respond within 24 hours.</p>
+        <main class="contact-section">
+            <div class="line"></div>
+            <h1>Let's connect</h1>
+            <p class="contact-intro">Have a role, project, or collaboration in mind? Send a message or reach out directly.</p>
 
-                <div class="contact-grid" style="display:flex;gap:40px;align-items:flex-start;">
-                    <!-- Contact Form - Large Rectangle on Left -->
-                    <div class="contact-form" style="flex:0 0 55%;min-width:350px;background:#3d5a80;padding:28px;border-radius:0px;box-shadow:rgba(0,0,0,0.45) 0 10px 20px;min-height:550px;">
-                        <form id="contactForm" style="display:flex;flex-direction:column;height:100%;gap:16px;">
-                            <div>
-                                <label for="name" style="color:#e0fbfc;font-weight:600;display:block;margin-bottom:6px;">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your name" required style="width:100%;padding:10px;border-radius:6px;border:none;">
-                            </div>
+            <div class="contact-grid">
+                <section class="contact-form-panel" aria-labelledby="contact-form-title">
+                    <h2 id="contact-form-title">Send a message</h2>
+                    <p class="contact-form-note">Submitting this form opens your email app with the message ready to send.</p>
+                    <form id="contactForm">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" autocomplete="name" maxlength="100" required>
 
-                            <div>
-                                <label for="email" style="color:#e0fbfc;font-weight:600;display:block;margin-bottom:6px;">Email</label>
-                                <input type="email" id="email" name="email" placeholder="you@example.com" required style="width:100%;padding:10px;border-radius:6px;border:none;">
-                            </div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required>
 
-                            <div>
-                                <label for="subject" style="color:#e0fbfc;font-weight:600;display:block;margin-bottom:6px;">Subject</label>
-                                <input type="text" id="subject" name="subject" placeholder="Brief subject" style="width:100%;padding:10px;border-radius:6px;border:none;">
-                            </div>
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" maxlength="150" required>
 
-                            <div style="flex:1;display:flex;flex-direction:column;">
-                                <label for="message" style="color:#e0fbfc;font-weight:600;display:block;margin-bottom:6px;">Message</label>
-                                <textarea id="message" name="message" placeholder="Tell me about your project..." required style="flex:1;width:100%;padding:12px;border-radius:0px;border:none;resize:none;background:#eaf6fb;color:#0b2230;"></textarea>
-                            </div>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" maxlength="5000" required></textarea>
 
-                            <button type="submit" class="btn" style="width:100%;background:#98c1d9;color:#293241;padding:12px 18px;border-radius:6px;font-weight:700;">Send Message</button>
-                        </form>
-                        <p id="formStatus" style="color:#cfe8f5;margin-top:12px;display:none;"></p>
-                        <p style="color:#9fb8c8;font-size:13px;margin-top:10px;">Prefer not to use the form? <a href="mailto:kishan@example.com" style="color:#e0fbfc;text-decoration:underline;">Email me directly</a>.</p>
+                        <button type="submit" class="btn">Open email app</button>
+                    </form>
+                    <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+                </section>
+
+                <aside class="contact-info-panel" aria-labelledby="contact-info-title">
+                    <h2 id="contact-info-title">Contact details</h2>
+                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:kishankumarbgp2006@gmail.com">kishankumarbgp2006@gmail.com</a></p>
+                    <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+917739198016">+91 7739198016</a></p>
+                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Bhagalpur, Bihar, India</p>
+                    <div class="contact-social-links" aria-label="Social profiles">
+                        <a href="https://github.com/Kishan0118" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/kishan-kumar-067013263" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="https://t.me/kk215Anonymous" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fa-brands fa-telegram" aria-hidden="true"></i></a>
                     </div>
-
-                    <!-- Contact Info - Right Side -->
-                    <div class="contact-info-panel" style="flex:0 0 40%;min-width:240px;color:#e0fbfc;">
-                        <h3 style="color:#98c1d9;margin-bottom:12px;">Contact Info</h3>
-                        <p style="margin-bottom:10px;"><i class="fa-solid fa-envelope" style="color:#ee6c4d;margin-right:10px;"></i> <a href="mailto:kishankumarbgp2006@gmail.com" style="color:#cfe8f5;text-decoration:none;">kishankumarbgp2006@gmail.com</a></p>
-                        <p style="margin-bottom:10px;"><i class="fa-solid fa-phone" style="color:#ee6c4d;margin-right:10px;"></i> <a href="tel:+917739198016" style="color:#cfe8f5;text-decoration:none;">+91 7739198016</a></p>
-                        <p style="margin-bottom:20px;">Prefer a quick chat? Find me on social:</p>
-                        <div style="display:flex;gap:12px;margin-bottom:20px;">
-                            <a href="https://github.com/Kishan0118" target="_blank" class="footer-social" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#1a1a1a;border:2px solid #ee6c4d;color:#e0fbfc;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#ee6c4d';this.style.color='#293241';this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#1a1a1a';this.style.color='#e0fbfc';this.style.transform='translateY(0)';"><i class="fa-brands fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/kishan-kumar-067013263" target="_blank" class="footer-social" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#1a1a1a;border:2px solid #ee6c4d;color:#e0fbfc;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#ee6c4d';this.style.color='#293241';this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#1a1a1a';this.style.color='#e0fbfc';this.style.transform='translateY(0)';"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/kk2.1.5_kishan" target="_blank" class="footer-social" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#1a1a1a;border:2px solid #ee6c4d;color:#e0fbfc;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#ee6c4d';this.style.color='#293241';this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#1a1a1a';this.style.color='#e0fbfc';this.style.transform='translateY(0)';"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="https://t.me/kk215Anonymous" target="_blank" class="footer-social" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#1a1a1a;border:2px solid #ee6c4d;color:#e0fbfc;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#ee6c4d';this.style.color='#293241';this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#1a1a1a';this.style.color='#e0fbfc';this.style.transform='translateY(0)';"><i class="fa-brands fa-telegram"></i></a>
-                            <a href="https://twitter.com" target="_blank" class="footer-social" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#1a1a1a;border:2px solid #ee6c4d;color:#e0fbfc;text-decoration:none;transition:all 0.3s ease;" onmouseover="this.style.background='#ee6c4d';this.style.color='#293241';this.style.transform='translateY(-3px)';" onmouseout="this.style.background='#1a1a1a';this.style.color='#e0fbfc';this.style.transform='translateY(0)';"><i class="fa-brands fa-x-twitter"></i></a>
-                        </div>
-
-                        <div style="background:#293241;padding:12px;border-radius:6px;">
-                            <h4 style="margin:0 0 6px;color:#98c1d9;">Location</h4>
-                            <p style="margin:0;color:#cfe8f5;">Bhagalpur, Bihar, India</p>
-                        </div>
-
-                        <!-- Embedded Google Map -->
-                        <div style="margin-top:16px;border-radius:6px;overflow:hidden;border:2px solid #1a1a1a;">
-                            <iframe title="map" width="100%" height="200" frameborder="0" style="border:0;" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Bhagalpur&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                </aside>
+            </div>
         </main>
+    </div>
 
-       
-
-    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-
-    <script src="footer-loader.js"></script>
+    <script src="contact.js" defer></script>
+    <script src="footer-loader.js" defer></script>
+    <script src="menu.js" defer></script>
 </body>
 </html>

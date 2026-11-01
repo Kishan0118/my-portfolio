@@ -1,172 +1,147 @@
-// projects.js
+const API_URL = 'https://kishanbackend.onrender.com/api/projects';
 
-// -------------------------------------------------------------------------
-// --- 1. DATA FETCHING (Backend Connection) ---
-// -------------------------------------------------------------------------
+function createTextElement(tagName, className, text) {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    element.textContent = text;
+    return element;
+}
 
-// यह फंक्शन API से डेटा प्राप्त करता है और रेंडरिंग शुरू करता है
-async function fetchProjects() {
+function safeExternalUrl(value) {
+    if (typeof value !== 'string' || !value.trim()) return null;
+
     try {
-        // show loader immediately when starting fetch
-        if (typeof showLoader === 'function') showLoader();
-        // आपका Java Spring Boot API Endpoint
-        const apiUrl = 'https://kishanbackend.onrender.com/api/projects'; 
-        
-        const response = await fetch(apiUrl); 
-        
-        if (!response.ok) {
-            throw new Error("HTTP error! Status: ${response.status}");
-        }
-        
-        const projectsData = await response.json(); 
-        console.log("Backend से मिला डेटा:", projectsData);
-        
-        // Debug: Log first project's screenshots
-        if (projectsData && projectsData.length > 0) {
-            console.log("First project screenshots:", projectsData[0].screenshots);
-            if (projectsData[0].screenshots && projectsData[0].screenshots.length > 0) {
-                console.log("First screenshot URL:", projectsData[0].screenshots[0]);
-            }
-        }
-        
-        // डेटा मिलने के बाद, रेंडर और फ़िल्टरिंग शुरू करें
-        if (projectsData && projectsData.length > 0) {
-            renderProjects(projectsData);
-            setupFilters(projectsData); // फ़िल्टर लॉजिक के लिए डेटा पास करें
-        } else {
-            // यदि डेटाबेस खाली है तो संदेश दिखाएँ
-            const grid = document.getElementById('projects-grid');
-            if (grid) {
-                grid.innerHTML = '<p style="text-align: center;">क्षमा करें, डेटाबेस में कोई प्रोजेक्ट नहीं मिला।</p>';
-            }
-        }
-        // ensure loader is hidden if nothing to render (renderProjects hides on success)
-        if (typeof hideLoader === 'function') hideLoader();
-        
-    } catch (error) {
-        console.error("Error fetching projects from backend API:", error);
-        if (typeof hideLoader === 'function') hideLoader();
-        // यदि कनेक्शन विफल हो जाता है तो त्रुटि संदेश दिखाएँ
-        const grid = document.getElementById('projects-grid');
-        if (grid) {
-            grid.innerHTML = '<p style="color: red; text-align: center;">माफ़ करना, प्रोजेक्ट डेटा लोड करने में कोई समस्या आई। कृपया Java सर्वर चल रहा है या नहीं, जाँच करें।</p>';
-        }
+        const url = new URL(value.trim());
+        return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : null;
+    } catch {
+        return null;
     }
 }
 
+function createProjectCard(project) {
+    const category = typeof project.category === 'string'
+        ? project.category.trim().toLowerCase()
+        : 'uncategorized';
+    const card = document.createElement('article');
+    card.className = `project-card ${category.replace(/[^a-z0-9_-]/g, '')}`;
+    card.dataset.category = category;
 
-// -------------------------------------------------------------------------
-// --- 2. CORE FUNCTIONS (Renders data using old CSS classes) ---
-// -------------------------------------------------------------------------
+    const screenshot = Array.isArray(project.screenshots)
+        ? safeExternalUrl(project.screenshots[0])
+        : null;
 
-// Function to render projects dynamically
-function renderProjects(projectsToRender) {
-    // projects.html में इस्तेमाल की गई ID: 'projects-grid'
-    const grid = document.getElementById('projects-grid'); 
+    if (screenshot) {
+        const image = document.createElement('img');
+        image.src = screenshot;
+        image.alt = `${project.name || 'Project'} screenshot`;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        card.appendChild(image);
+    }
 
-    if (!grid) return; 
+    const content = document.createElement('div');
+    content.className = 'card-content';
+    content.appendChild(createTextElement('h2', '', project.name || 'Untitled project'));
 
-    grid.innerHTML = ''; // पुराने कंटेंट को साफ करें
+    const technologies = Array.isArray(project.tech)
+        ? project.tech.filter(value => typeof value === 'string' && value.trim()).join(', ')
+        : '';
+    if (technologies) {
+        content.appendChild(createTextElement('p', 'tech-stack', technologies));
+    }
 
+    if (project.description) {
+        content.appendChild(createTextElement('p', 'description', project.description));
+    }
 
-    projectsToRender.forEach(project => {
-        
-        // category को लोअरकेस में बदलें ताकि CSS फ़िल्टर काम करे
-        const categoryClass = project.category ? project.category.toLowerCase() : 'uncategorized';
+    const links = document.createElement('div');
+    links.className = 'card-links';
+    const liveUrl = safeExternalUrl(project.liveLink);
+    const sourceUrl = safeExternalUrl(project.githubLink);
 
-        // Backend provides `screenshots` as an array in the DTO.
-        // Use the first screenshot if available, otherwise fall back to a placeholder.
-        const firstScreenshot = Array.isArray(project.screenshots) && project.screenshots.length > 0
-            ? project.screenshots[0]
-            : null;
+    if (liveUrl) {
+        const liveLink = createTextElement('a', '', 'Live demo');
+        liveLink.href = liveUrl;
+        liveLink.target = '_blank';
+        liveLink.rel = 'noopener noreferrer';
+        links.appendChild(liveLink);
+    }
 
-        // Debug log
-        console.log(`Project: ${project.name}, Screenshots:`, project.screenshots, "First:", firstScreenshot);
+    if (sourceUrl) {
+        const sourceLink = createTextElement('a', '', 'Source code');
+        sourceLink.href = sourceUrl;
+        sourceLink.target = '_blank';
+        sourceLink.rel = 'noopener noreferrer';
+        links.appendChild(sourceLink);
+    }
 
-        // Build a full URL for the image. If the screenshot already contains a protocol,
-        // use it as-is; otherwise assume it's served from the frontend static `/image` path
-        // on the frontend server or from the backend under `/image`.
-        const imageUrl = firstScreenshot
-    ? firstScreenshot.replace("http://localhost:8080", "https://kishanbackend.onrender.com").trim()
-    : "https://kishanbackend.onrender.com/image/placeholder.png";
-        
-        console.log(`Final imageUrl for ${project.name}:`, imageUrl);
+    if (project.id !== undefined && project.id !== null && String(project.id).trim()) {
+        const detailsLink = createTextElement('a', 'btn view-more', 'Project details');
+        detailsLink.href = `view_project.html?id=${encodeURIComponent(String(project.id))}`;
+        links.appendChild(detailsLink);
+    }
 
-        const cardHTML = `
-            <div class="project-card ${categoryClass}" data-category="${categoryClass}">
-                
-                <img src="${imageUrl}" alt="${project.name || 'Project Screenshot'}" style="width: 100%; height: auto; object-fit: cover;">
-                
-                <div class="card-content">
-                    <h3>${project.name || 'Untitled Project'}</h3>
-                    
-                    <p class="tech-stack">Tech: ${Array.isArray(project.tech) ? project.tech.join(', ') : (project.tech || 'N/A')}</p>
-                    
-                    <p class="description">${project.description || 'A brief description is missing.'}</p>
-                    
-                    <div class="card-links">
-                        <a href="${project.liveLink || '#'}" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Live</a>
-                        <a href="${project.githubLink || '#'}" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
-                        <a href="view_project.html?id=${project.id}" class="btn view-more">View More</a>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        grid.insertAdjacentHTML('beforeend', cardHTML);
-    });
-    
-    // After rendering the projects, hide the loader and ensure grid is visible
-    if (typeof hideLoader === 'function') hideLoader();
+    if (links.childElementCount) content.appendChild(links);
+    card.appendChild(content);
+    return card;
 }
 
+function renderProjects(projects) {
+    const grid = document.getElementById('projects-grid');
+    const status = document.getElementById('projects-status');
+    const filters = document.querySelectorAll('.filter-btn');
+    if (!grid || !status) return;
 
-// Function to handle filtering logic
-function setupFilters(allProjectsData) {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    grid.replaceChildren();
+    if (!projects.length) {
+        status.textContent = 'No projects are available right now.';
+        status.hidden = false;
+        return;
+    }
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const filterValue = e.target.getAttribute('data-filter');
+    const fragment = document.createDocumentFragment();
+    projects.forEach(project => fragment.appendChild(createProjectCard(project)));
+    grid.appendChild(fragment);
+    status.hidden = true;
 
-            // 1. Update active button state
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            e.target.classList.add('active');
+    filters.forEach(button => {
+        button.addEventListener('click', () => {
+            filters.forEach(filter => {
+                const active = filter === button;
+                filter.classList.toggle('active', active);
+                filter.setAttribute('aria-pressed', String(active));
+            });
 
-            // 2. Filter the projects (uses the data fetched from the API)
-            // Fix: category field के null होने पर भी क्रैश न हो, इसलिए सुरक्षा जाँच जोड़ी गई है
-            const filteredProjects = (filterValue === 'all')
-                ? allProjectsData
-                : allProjectsData.filter(p => p.category && p.category.toLowerCase() === filterValue);
-
-            // 3. Render the filtered results
-            renderProjects(filteredProjects);
+            const selectedCategory = button.dataset.filter;
+            grid.querySelectorAll('.project-card').forEach(card => {
+                card.hidden = selectedCategory !== 'all'
+                    && card.dataset.category !== selectedCategory;
+            });
         });
     });
 }
 
+async function fetchProjects() {
+    const status = document.getElementById('projects-status');
 
-// -------------------------------------------------------------------------
-// --- 3. INITIALIZATION ---
-// -------------------------------------------------------------------------
+    try {
+        const response = await fetch(API_URL, { headers: { Accept: 'application/json' } });
+        if (!response.ok) {
+            throw new Error(`Projects request failed with status ${response.status}`);
+        }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // पेज लोड होने पर API से डेटा फेच करें
-    fetchProjects(); 
-});
-// --------------------
-// Loader helpers
-// --------------------
-function showLoader(){
-    const l = document.getElementById('projects-loader');
-    const grid = document.getElementById('projects-grid');
-    if (l) { l.style.display = 'flex'; l.setAttribute('aria-busy','true'); }
-    if (grid) { grid.style.display = 'none'; }
+        const projects = await response.json();
+        if (!Array.isArray(projects)) {
+            throw new Error('Projects API returned an invalid response.');
+        }
+        renderProjects(projects);
+    } catch (error) {
+        console.error('Unable to load portfolio projects.', error);
+        if (status) {
+            status.textContent = 'Projects could not be loaded. Please try again later.';
+            status.hidden = false;
+        }
+    }
 }
 
-function hideLoader(){
-    const l = document.getElementById('projects-loader');
-    const grid = document.getElementById('projects-grid');
-    if (l) { l.style.display = 'none'; l.setAttribute('aria-busy','false'); }
-    if (grid) { grid.style.display = ''; }}
-
+document.addEventListener('DOMContentLoaded', fetchProjects);

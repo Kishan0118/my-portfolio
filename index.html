@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio</title>
+    <meta name="description" content="Kishan Kumar's portfolio: Android, Java, Spring Boot, and web development projects.">
+    <meta name="theme-color" content="#293241">
+    <title>Kishan Kumar | Software Developer</title>
         <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
         <script>
@@ -21,26 +23,28 @@
             <div class="logo">
                 <h1>*Kis<span>han.</span></h1>
             </div>
-            <div class="nav-links">
+            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html" class="active-link">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="experience.html">Experience</a></li>
                 </ul>
-            </div>
-            <a href="contact.html" class="btn">Contact</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </header>
+        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
         <div class="main-content">
             <div class="main">
                 <div class="left">
                     <div class="line"></div>
-                    <h1>I'M kishan kumar</h1>
-                    <h2>A <span class="auto-type"></span> </h2>
-                    <p> Welcome to my portfolio! I'm a web developer with a focus on [front-end or back-end and user frindely desigine Creator].
-                         Here you'll find a collection of my personal and professional projects."</p>
-                    <a href="projects.html" class="btn">Browse Portfolio</a>
-                    <a href="" class="btn btn-primary">Download CV</a>
+                    <h1>Hi, I'm Kishan Kumar</h1>
+                    <h2><span class="auto-type"></span></h2>
+                    <p>I build Android applications and backend services, with a focus on Java, Spring Boot, and practical automation. Explore selected projects, the technologies behind them, and what I am learning next.</p>
+                    <a href="projects.html" class="btn">Explore projects</a>
+                    <a href="contact.html" class="btn btn-primary">Get in touch</a>
                 </div>
                 <div class="right">
                     <div class="image">
@@ -50,26 +54,28 @@
             </div>
             <div class="social">
                 <div class="social-link">
-                   <a href="https://www.instagram.com/kk2.1.5_kishan?igsh=c3E1aW9icWgxeWNn">
-                     <i class="fa-brands fa-instagram"></i>
+                   <a href="https://www.instagram.com/kk2.1.5_kishan" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                     <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                     </a>
                 </div>
                 <div class="social-link">
-                   <a href="https://www.linkedin.com/in/kishan-kumar-067013263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-                     <i class="fa-brands fa-linkedin"></i>
+                   <a href="https://www.linkedin.com/in/kishan-kumar-067013263" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                     <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
                      </a>
                 </div>
                 <div class="social-link">
-                    <i class="fa-brands fa-twitter"></i>
+                    <a href="https://github.com/Kishan0118" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div class="social-link">
-                   <a href="http://t.me/kk215Anonymous">
-                    <i class="fa-brands fa-telegram"></i>
+                   <a href="https://t.me/kk215Anonymous" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <i class="fa-brands fa-telegram" aria-hidden="true"></i>
                 </a>
                 </div>
                 <div class="social-link">
-                   <a href="https://github.com/Kishan0118">
-                    <i class="fa-brands fa-github"></i>
+                   <a href="mailto:kishankumarbgp2006@gmail.com" aria-label="Email Kishan">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
                 </a>
                 </div>
             </div>
@@ -93,5 +99,6 @@
     <div id="footer-placeholder"></div>
 
     <script src="footer-loader.js"></script>
+    <script src="menu.js" defer></script>
 </body>
 </html>

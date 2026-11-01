@@ -1,158 +1,133 @@
-// view_project.js
+const PROJECTS_API_URL = 'https://kishanbackend.onrender.com/api/projects';
 
-// 1. DUMMY DETAILED DATA (Replace with actual Firebase fetching later)
-// Use the same structure as the dummy data in projects.js, but add more detail and an image array
-const detailedProjectsData = [
-    {
-        id: 'SocwVxkPJjVI8gPL1Slc',
-        name: "E-Commerce Web App",
-        category: "websites",
-        tech: ["React", "Node.js", "MongoDB", "Redux", "Stripe API"],
-        description: "This robust e-commerce platform was built to handle thousands of users concurrently. Key features include user authentication, product catalog management, a custom shopping cart, and integration with the Stripe API for secure payments. The project utilized Redux for complex state management, ensuring a smooth and responsive user experience.",
-        screenshots: ["/image/ecommers_m.jpg", "/image/ecomm_gallery_1.jpg"],
-        liveLink: "#",
-        githubLink: "#"
-    },
-    {
-        id: 'fU0gkQFnfsDjtN3wPb1c',
-        name: "Image Recognition AI",
-        category: "ai",
-        tech: ["Python", "TensorFlow", "Flask"],
-        description: "A deep learning module integrated into a web service for real-time image classification.",
-        screenshots: ["/image/imagereconize.jpg"],
-        liveLink: "#",
-        githubLink: "#"
-    },
-    {
-        id: 'rNVu2XDaWXpbFLKaP4LE',
-        name: "Web Scraping Automation Bot",
-        category: "automation",
-        tech: ["Python", "Selenium", "Pandas"],
-        description: "Automated data extraction from multiple websites and consolidation into CSV format.",
-        screenshots: ["/image/webbot.jpg"],
-        liveLink: "#",
-        githubLink: "#"
-    },
-    // Android sample project (for testing Download APK button)
-    {
-        id: 'uP4IOTJW5MMGRIKwIMxe',
-        name: "Task Manager Android App",
-        category: "android",
-        tech: ["Java", "Android SDK", "SQLite"],
-        description: "A simple, yet powerful task management application for daily productivity.",
-        screenshots: ["https://kishanbackend.onrender.com/image/androidapp.jpg", "/image/android_app_screen2.jpg"],
-        liveLink: "#",
-        githubLink: "#",
-        apkLink: "http://localhost:8080/image/androidapp.apk"
+function safeProjectUrl(value) {
+    if (typeof value !== 'string' || !value.trim()) return null;
+
+    try {
+        const url = new URL(value.trim(), PROJECTS_API_URL);
+        return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : null;
+    } catch {
+        return null;
     }
-];
-
-// --- CORE FUNCTIONS ---
-
-// Function to extract project ID from URL
-function getProjectIdFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    // Return raw id (could be numeric or string from backend)
-    return urlParams.get('id');
 }
 
-// Function to find the project data (simulating Firebase fetch)
-function fetchProjectDetails(id) {
-    // In a real app, you would use: 
-    // const docRef = doc(db, "projects", id.toString());
-    // const docSnap = await getDoc(docRef);
-    
-    if (!id) return undefined;
-    return detailedProjectsData.find(project => String(project.id) === String(id));
-}
-
-// Function to render the project details onto the page
-function renderProject(project) {
-    if (!project) {
-        document.getElementById('project-title').textContent = "Error: Project Not Found!";
-        document.getElementById('project-description').textContent = "The requested project ID could not be found in the database.";
+function setProjectLink(element, value) {
+    const url = safeProjectUrl(value);
+    if (!url) {
+        element.hidden = true;
+        element.removeAttribute('href');
         return;
     }
 
-    // 1. Update Title and Description
-    document.getElementById('project-title').textContent = project.name;
-    document.getElementById('project-description').textContent = project.description;
-
-    // 2. Update Links
-    const liveButton = document.getElementById('live-link');
-    
-    // Android projects के लिए "Download APK" button दिखाएं
-    if (project.category && project.category.toLowerCase() === 'android') {
-        liveButton.innerHTML = '<i class="fa-solid fa-download"></i> Download APK';
-        liveButton.href = project.apkLink || '#';
-    } else {
-        liveButton.innerHTML = '<i class="fa-solid fa-up-right-from-square"></i> View Live Project';
-        liveButton.href = project.liveLink || '#';
-    }
-    
-    document.getElementById('github-link').href = project.githubLink;
-    
-    // 3. Update Main Screenshot
-    document.getElementById('main-screenshot').src = project.screenshots[0];
-
-    // 4. Render Tech Stack Bubbles
-    const techListContainer = document.getElementById('tech-stack-list');
-    techListContainer.innerHTML = '';
-    project.tech.forEach(tech => {
-        const bubble = `<span class="tech-bubble">${tech}</span>`;
-        techListContainer.insertAdjacentHTML('beforeend', bubble);
-    });
-    
-    // 5. Render Screenshot Gallery
-    const galleryContainer = document.getElementById('screenshot-gallery');
-    galleryContainer.innerHTML = '';
-    project.screenshots.forEach((src, index) => {
-        const thumb = document.createElement('img');
-        thumb.src = src;
-        thumb.alt = `${project.name} Screenshot ${index + 1}`;
-        thumb.className = 'gallery-thumb';
-        // Set first one as active
-        if (index === 0) {
-            thumb.classList.add('active');
-        }
-        
-        // Add click listener to swap main image
-        thumb.addEventListener('click', () => {
-            document.getElementById('main-screenshot').src = src;
-            // Update active class
-            document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-        });
-        
-        galleryContainer.appendChild(thumb);
-    });
+    element.href = url;
+    element.hidden = false;
 }
 
+function renderProject(project) {
+    document.title = `${project.name || 'Project details'} | Kishan Kumar`;
+    document.getElementById('project-title').textContent = project.name || 'Untitled project';
+    document.getElementById('project-description').textContent =
+        project.description || 'A detailed project description is not available yet.';
 
-// --- INITIALIZATION ---
-document.addEventListener('DOMContentLoaded', () => {
-    const projectId = getProjectIdFromUrl();
-    
-    if (projectId) {
-        // Try fetching the project from the backend API first
-        const apiUrl = `https://kishanbackend.onrender.com/api/projects/${encodeURIComponent(projectId)}`;
+    const liveLink = document.getElementById('live-link');
+    const isAndroid = typeof project.category === 'string'
+        && project.category.toLowerCase() === 'android';
+    const liveUrl = isAndroid ? project.apkLink : project.liveLink;
+    liveLink.innerHTML = isAndroid
+        ? '<i class="fa-solid fa-download" aria-hidden="true"></i> Download APK'
+        : '<i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i> View live project';
+    setProjectLink(liveLink, liveUrl);
+    setProjectLink(document.getElementById('github-link'), project.githubLink);
 
-        fetch(apiUrl)
-            .then(resp => {
-                if (!resp.ok) throw new Error('Project not found');
-                return resp.json();
-            })
-            .then(projectData => {
-                // Backend returns DTO with screenshots as array and tech as array
-                renderProject(projectData);
-            })
-            .catch(err => {
-                console.warn('Backend fetch failed, falling back to local data:', err);
-                // Fallback: use local detailedProjectsData
-                const projectData = fetchProjectDetails(projectId);
-                renderProject(projectData);
+    const screenshots = Array.isArray(project.screenshots)
+        ? project.screenshots.map(safeProjectUrl).filter(Boolean)
+        : [];
+    const mainImage = document.getElementById('main-screenshot');
+    const gallery = document.getElementById('screenshot-gallery');
+    gallery.replaceChildren();
+
+    if (screenshots.length) {
+        mainImage.src = screenshots[0];
+        mainImage.alt = `${project.name || 'Project'} screenshot`;
+        mainImage.hidden = false;
+
+        screenshots.forEach((source, index) => {
+            const thumbnail = document.createElement('button');
+            thumbnail.type = 'button';
+            thumbnail.className = 'gallery-thumb-button';
+            thumbnail.setAttribute('aria-label', `Show screenshot ${index + 1}`);
+            thumbnail.setAttribute('aria-pressed', String(index === 0));
+
+            const image = document.createElement('img');
+            image.src = source;
+            image.alt = '';
+            image.loading = 'lazy';
+            image.className = `gallery-thumb${index === 0 ? ' active' : ''}`;
+            thumbnail.appendChild(image);
+            thumbnail.addEventListener('click', () => {
+                mainImage.src = source;
+                gallery.querySelectorAll('button').forEach(button => {
+                    const active = button === thumbnail;
+                    button.setAttribute('aria-pressed', String(active));
+                    button.querySelector('img').classList.toggle('active', active);
+                });
             });
+            gallery.appendChild(thumbnail);
+        });
     } else {
-        document.getElementById('project-title').textContent = "Error: No Project ID Provided!";
+        mainImage.removeAttribute('src');
+        mainImage.hidden = true;
     }
-});
+
+    const technologies = document.getElementById('tech-stack-list');
+    technologies.replaceChildren();
+    if (Array.isArray(project.tech)) {
+        project.tech.filter(value => typeof value === 'string' && value.trim())
+            .forEach(value => {
+                const badge = document.createElement('span');
+                badge.className = 'tech-bubble';
+                badge.textContent = value;
+                technologies.appendChild(badge);
+            });
+    }
+}
+
+async function loadProject() {
+    const title = document.getElementById('project-title');
+    const projectId = new URLSearchParams(window.location.search).get('id');
+    if (!projectId) {
+        title.textContent = 'Project not found';
+        document.getElementById('project-description').textContent =
+            'No project was selected. Return to the projects page to choose one.';
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            `${PROJECTS_API_URL}/${encodeURIComponent(projectId)}`,
+            { headers: { Accept: 'application/json' } }
+        );
+        if (response.status === 404) {
+            title.textContent = 'Project not found';
+            document.getElementById('project-description').textContent =
+                'This project may have been removed or the link may be incorrect.';
+            return;
+        }
+        if (!response.ok) {
+            throw new Error(`Project request failed with status ${response.status}`);
+        }
+
+        const project = await response.json();
+        if (!project || typeof project !== 'object') {
+            throw new Error('Project API returned an invalid response.');
+        }
+        renderProject(project);
+    } catch (error) {
+        console.error('Unable to load project details.', error);
+        title.textContent = 'Project details unavailable';
+        document.getElementById('project-description').textContent =
+            'The project could not be loaded right now. Please try again later.';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadProject);

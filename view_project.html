@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
-    <title>Project Details - Dynamic Load</title>
+    <meta name="description" content="Project details, technology choices, and links for Kishan Kumar's software projects.">
+    <title>Project details | Kishan Kumar</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
     <script>
@@ -21,16 +22,19 @@
             <div class="logo">
                 <h1>*Kis<span>han.</span></h1>
             </div>
-            <div class="nav-links">
+            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html" class="active-link">Portfolio</a></li>
+                    <li><a href="projects.html" class="active-link">Projects</a></li>
                     <li><a href="experience.html">Experience</a></li>
                 </ul>
-            </div>
-            <a href="#" class="btn">Contact</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </header>
+        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
 
         <div class="main-content">
             <div class="view-project-section">
@@ -40,7 +44,7 @@
                 <div class="project-details-container">
                     
                     <div class="project-media-side">
-                        <img id="main-screenshot" src="#" alt="Project Main Screenshot" class="main-project-image">
+                        <img id="main-screenshot" alt="Project screenshot" class="main-project-image" hidden>
                         
                         <div class="screenshot-gallery" id="screenshot-gallery">
                             </div>
@@ -59,8 +63,8 @@
                         </p>
                         
                         <div class="project-links">
-                            <a href="#" id="live-link" target="_blank" class="btn"><i class="fa-solid fa-up-right-from-square"></i> View Live Project</a>
-                            <a href="#" id="github-link" target="_blank" class="btn btn-primary"><i class="fa-brands fa-github"></i> View Code on GitHub</a>
+                            <a id="live-link" target="_blank" rel="noopener noreferrer" class="btn" hidden><i class="fa-solid fa-up-right-from-square"></i> View Live Project</a>
+                            <a id="github-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary" hidden><i class="fa-brands fa-github"></i> View Code on GitHub</a>
                         </div>
 
                         <a href="projects.html" class="btn back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
@@ -74,49 +78,10 @@
     </div>
 
     <script src="view_project.js"></script>
+    <script src="menu.js" defer></script>
 
-    <script src="footer-script.js"></script>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <!-- Left Section: Branding & Tagline -->
-            <div class="footer-left">
-                <h3>*Kis<span>han.</span></h3>
-                <p class="tagline">Crafting intelligent apps & digital experiences.</p>
-            </div>
-
-            <!-- Center Section: Quick Links -->
-            <div class="footer-center">
-                <h4>Quick Links</h4>
-                <nav class="footer-nav">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="experience.html">Experience</a>
-                </nav>
-            </div>
-
-            <!-- Right Section: Contact Info & Social -->
-            <div class="footer-right">
-                <h4>Get In Touch</h4>
-                <div class="contact-info">
-                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:kishan@example.com">kishan@example.com</a></p>
-                    <p><i class="fa-solid fa-phone"></i> <a href="tel:+919876543210">+91 98765 43210</a></p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/Kishan0118" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/kishan-kumar-067013263" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/kk2.1.5_kishan" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bottom Bar: Copyright -->
-        <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> Kishan Kumar. All rights reserved. | Crafted with <i class="fa-solid fa-heart"></i> by Kishan</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script src="footer-loader.js"></script>
 
 </body>
 </html>

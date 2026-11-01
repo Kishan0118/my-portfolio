@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
-    <title>Portfolio - Experience</title>
+    <meta name="description" content="Kishan Kumar's software development experience, selected work, and learning journey.">
+    <title>Experience | Kishan Kumar</title>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
     <script>
@@ -21,16 +22,19 @@
             <div class="logo">
                 <h1>*Kis<span>han.</span></h1>
             </div>
-            <div class="nav-links">
+            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="experience.html" class="active-link">Experience</a></li>
                 </ul>
-            </div>
-            <a href="contact.html" class="btn">Contact</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </header>
+        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
 
         <div class="main-content">
             <div class="experience-section">
@@ -92,5 +96,6 @@
     <div id="footer-placeholder"></div>
 
     <script src="footer-loader.js"></script>
+    <script src="menu.js" defer></script>
     </body>
     </html>

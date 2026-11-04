@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" fill="none">
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="matrix(0 225 -225 0 260 257)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4084ff" stop-opacity=".3"/><stop offset="1" stop-color="#4084ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="earth" x1="154" x2="380" y1="124" y2="402" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172d49"/><stop offset="1" stop-color="#081321"/>
+    </linearGradient>
+    <clipPath id="sphere"><circle cx="260" cy="260" r="165"/></clipPath>
+  </defs>
+  <circle cx="260" cy="260" r="218" fill="url(#glow)"/>
+  <ellipse cx="260" cy="260" rx="203" ry="89" stroke="#7e96ff" stroke-opacity=".5" transform="rotate(-24 260 260)"/>
+  <ellipse cx="260" cy="260" rx="193" ry="70" stroke="#65d9b4" stroke-opacity=".44" transform="rotate(57 260 260)"/>
+  <circle cx="260" cy="260" r="166" fill="url(#earth)" stroke="#9abaff" stroke-opacity=".6"/>
+  <g clip-path="url(#sphere)" stroke="#78a7d7" stroke-opacity=".28">
+    <ellipse cx="260" cy="260" rx="165" ry="49"/><ellipse cx="260" cy="260" rx="165" ry="102"/>
+    <ellipse cx="260" cy="260" rx="71" ry="165"/><ellipse cx="260" cy="260" rx="124" ry="165"/>
+    <path d="M95 260h330M260 95v330"/>
+    <path d="M134 175 182 150l29 16-7 23 18 10-14 29-28-8-14 27-34-8-13-30Zm70 97 24-19 20 12 11 24-21 36-16 47-20-20 8-36-11-21Zm86-77 35-22 39 17 25 34-24 21-31-12-16 20-31-12-21 9-7-29Zm12 90 23-9 19 17-9 24-21 10-17-19Z" fill="#a7edda" fill-opacity=".29" stroke="#a7edda" stroke-opacity=".7"/>
+  </g>
+  <circle cx="338" cy="213" r="6" fill="#44ffe0"/><circle cx="338" cy="213" r="14" stroke="#44ffe0" stroke-opacity=".72"/>
+  <circle cx="124" cy="191" r="6" fill="#65d9b4"/><circle cx="406" cy="328" r="5" fill="#ff8068"/>
+</svg>

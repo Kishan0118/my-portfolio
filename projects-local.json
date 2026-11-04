@@ -1,0 +1,24 @@
+[
+  {
+    "id": "college-management-erp",
+    "name": "College Management ERP",
+    "category": "android",
+    "status": "In progress",
+    "description": "A production-grade college management ERP app currently in development.",
+    "tech": []
+  },
+  {
+    "id": "flower-delivery-management",
+    "name": "Flower Delivery Management App",
+    "category": "android",
+    "description": "An Android app for flower delivery management.",
+    "tech": []
+  },
+  {
+    "id": "invoice-generation",
+    "name": "Invoice Generation App",
+    "category": "android",
+    "description": "An Android app for generating invoices.",
+    "tech": []
+  }
+]

@@ -3,97 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Project details, technology choices, and links for Kishan Kumar's software projects.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Project details, screenshots, tools, and downloads for Kishan Kumar's software projects.">
     <link rel="canonical" href="https://www.kishankumar.online/view_project.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Kishan Kumar">
-    <meta property="og:title" content="Project details | Kishan Kumar">
-    <meta property="og:description" content="Project details, technology choices, and source links for Kishan Kumar's software projects.">
+    <meta property="og:title" content="Project details — Kishan Kumar">
+    <meta property="og:description" content="Explore the details of a project by Kishan Kumar.">
     <meta property="og:url" content="https://www.kishankumar.online/view_project.html">
-    <meta property="og:image" content="https://www.kishankumar.online/image/kk_bg_remove_half.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Project details | Kishan Kumar">
-    <meta name="twitter:description" content="Project details, technology choices, and source links for Kishan Kumar's software projects.">
-    <meta name="twitter:image" content="https://www.kishankumar.online/image/kk_bg_remove_half.png">
-    <title>Project details | Kishan Kumar</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date());
-        gtag('config', 'G-8T8GW906N4', { 'anonymize_ip': true });
-    </script>
+    <meta property="og:image" content="https://www.kishankumar.online/image/portfolio-social.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>Project details — Kishan Kumar</title>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <h1>*Kis<span>han.</span></h1>
-            </div>
-            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html" class="active-link">Projects</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                </ul>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="Kishan Kumar home"><span>Kishan<span class="brand-mark">.</span><span class="brand-subtitle">Android developer</span></span></a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+            <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="about.html">About</a><a href="experience.html">Journey</a><a class="btn btn-secondary" href="contact.html">Let’s talk <span class="arrow" aria-hidden="true">↗</span></a>
             </nav>
-            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </header>
-        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
-
-        <div class="main-content">
-            <div class="view-project-section">
-                <div class="line"></div>
-                <h1 id="project-title">Loading Project Details...</h1>
-                
-                <div class="project-details-container">
-                    
-                    <div class="project-media-side">
-                        <img id="main-screenshot" alt="Project screenshot" class="main-project-image" hidden>
-                        
-                        <div class="screenshot-gallery" id="screenshot-gallery">
-                            </div>
-                    </div>
-
-                    <div class="project-info-side">
-                        
-                        <h2>Technology <span>Stack</span></h2>
-                        <div class="tech-stack-list" id="tech-stack-list">
-                            <span class="tech-bubble">Loading...</span>
-                        </div>
-                        
-                        <h2>Detailed <span>Description</span></h2>
-                        <p id="project-description">
-                            The full, detailed description of the project will appear here. This section explains the challenges faced, the solutions implemented, and the impact of the project.
-                        </p>
-                        
-                        <div class="project-links">
-                            <a id="live-link" target="_blank" rel="noopener noreferrer" class="btn" hidden><i class="fa-solid fa-up-right-from-square"></i> View Live Project</a>
-                            <a id="github-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary" hidden><i class="fa-brands fa-github"></i> View Code on GitHub</a>
-                        </div>
-
-                        <a href="projects.html" class="btn back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
-                    </div>
-                </div>
-
-            </div>
         </div>
-        <div class="social">
-             </div>
-    </div>
-
-    <script src="project-image-url.js"></script>
-    <script src="view_project.js"></script>
-    <script src="menu.js" defer></script>
-
+        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
+    </header>
+    <main id="main-content" class="page-shell">
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Project details</p>
+                <h1 id="project-title">Loading project…</h1>
+                <p class="lead" id="project-summary">A closer look at the problem, the build, and the tools behind this project.</p>
+                <p class="project-status-badge project-detail-state" id="project-detail-state" hidden></p>
+            </div>
+        </section>
+        <section class="container page-content">
+            <div class="project-detail">
+                <div class="project-detail-media">
+                    <img id="main-screenshot" class="main-project-image" alt="Project screenshot" hidden>
+                    <div class="screenshot-gallery" id="screenshot-gallery"></div>
+                </div>
+                <div class="project-detail-info">
+                    <p class="section-kicker">Tools used</p>
+                    <div class="tech-stack-list" id="tech-stack-list"><span class="tech-tag">Loading…</span></div>
+                    <h2 class="detail-heading">About this project</h2>
+                    <p id="project-description">Project details will appear here.</p>
+                    <div class="project-links">
+                        <a id="live-link" class="btn btn-primary" href="#" hidden>View live project ↗</a>
+                        <a id="github-link" class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer" hidden>View source ↗</a>
+                    </div>
+                    <p id="project-status" class="projects-status" role="status" aria-live="polite" hidden></p>
+                    <a class="text-link" style="margin-top:26px" href="projects.html"><span class="arrow" aria-hidden="true">←</span> Back to all projects</a>
+                </div>
+            </div>
+        </section>
+    </main>
     <div id="footer-placeholder"></div>
-    <script src="footer-loader.js"></script>
-
+    <script src="project-image-url.js" defer></script>
+    <script src="project-copy.js" defer></script>
+    <script src="view_project.js" defer></script>
+    <script src="footer-loader.js" defer></script>
+    <script src="menu.js" defer></script>
 </body>
 </html>

@@ -3,158 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Learn about Kishan Kumar's software development journey, Android and Java skills, current projects, and technical interests.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Learn about Kishan Kumar, an Android developer interested in Java, Kotlin, backend services, and practical automation.">
     <link rel="canonical" href="https://www.kishankumar.online/about.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Kishan Kumar">
-    <meta property="og:title" content="About Kishan Kumar | Android &amp; Java Developer">
-    <meta property="og:description" content="Learn about Kishan Kumar's software development journey, technical skills, and current projects.">
+    <meta property="og:title" content="About Kishan Kumar — Android Developer">
+    <meta property="og:description" content="Android development, backend systems, and a practical approach to building software.">
     <meta property="og:url" content="https://www.kishankumar.online/about.html">
-    <meta property="og:image" content="https://www.kishankumar.online/image/kk_bg_remove_half.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Kishan Kumar | Android &amp; Java Developer">
-    <meta name="twitter:description" content="Learn about Kishan Kumar's software development journey, technical skills, and current projects.">
-    <meta name="twitter:image" content="https://www.kishankumar.online/image/kk_bg_remove_half.png">
-    <title>About Kishan Kumar | Android &amp; Java Developer</title>
-        <!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);} 
-            gtag('js', new Date());
-            gtag('config', 'G-8T8GW906N4', { 'anonymize_ip': true });
-        </script>
+    <meta property="og:image" content="https://www.kishankumar.online/image/portfolio-social.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>About Kishan Kumar — Android Developer</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Kishan Kumar",
+        "url": "https://www.kishankumar.online/about.html",
+        "description": "Android developer from Bhagalpur, India, building Android apps with Java and Kotlin while learning Spring Boot and backend development.",
+        "sameAs": ["https://github.com/Kishan0118", "https://www.linkedin.com/in/kishan-kumar-067013263"]
+      }
+    }
+    </script>
 </head>
-<body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <h1>*Kis<span>han.</span></h1>
-            </div>
-            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active-link">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                </ul>
+<body class="ribbon-glow-page-active">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="Kishan Kumar home"><span>Kishan<span class="brand-mark">.</span><span class="brand-subtitle">Android developer</span></span></a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+            <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="about.html" aria-current="page">About</a><a href="experience.html">Journey</a><a class="btn btn-secondary" href="contact.html">Let’s talk <span class="arrow" aria-hidden="true">↗</span></a>
             </nav>
-            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </header>
+        </div>
         <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
-
-        <div class="main-content">
-            <div class="about-section">
-                
-                <div class="about-image-side">
-                    <div class="about-image">
-                        <img src="image/kk_bg_remove_half.png" alt="Kishan Kumar Profile">
+    </header>
+    <main id="main-content" class="page-shell">
+        <div class="ribbon-glow-stage ribbon-glow-page-stage" id="ribbon-glow-stage" aria-hidden="true">
+            <canvas class="ribbon-glow-canvas" id="ribbon-glow-canvas"></canvas>
+        </div>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">About me</p>
+                <h1>Developer by curiosity.<br><span class="accent">Builder by nature.</span></h1>
+                <p class="lead">I’m Kishan, an Android developer from Bhagalpur, India. I build Android apps and am learning Spring Boot while developing backend services.</p>
+            </div>
+        </section>
+        <section class="container page-content">
+            <div class="about-preview">
+                <div class="about-visual-card reveal">
+                    <img src="image/app-orbit-visual.svg" alt="" aria-hidden="true" decoding="async">
+                </div>
+                <div class="about-preview-copy reveal reveal-delay-1">
+                    <p class="section-kicker">My approach</p>
+                    <h2>Start with the problem. Keep the solution simple.</h2>
+                    <p>I began coding during my diploma and kept learning by building. I’ve made weather, task management, flower delivery management, and invoice generation apps. I’m now developing a production-grade College Management ERP.</p>
+                    <p>I care about making software feel understandable and reliable: clear interfaces, useful features, and code that is easier to maintain.</p>
+                    <div class="inline-stats">
+                        <span class="inline-stat">Android apps</span><span class="inline-stat">Backend services</span><span class="inline-stat">Automation</span>
                     </div>
                 </div>
-
-                <div class="about-text-side">
-                    <div class="line"></div>
-                    <h1>About <span>Me</span></h1>
-                    
-                    <!-- 1. Professional Identity -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">Who I Am</h3>
-                        <p class="professional-identity">
-                            Android Developer + Tech Problem Solver
-                        </p>
-                    </div>
-
-                    <!-- 2. Your Journey -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">My Journey</h3>
-                        <p>
-                            I started my coding journey during my Diploma, discovering the power of building applications that solve real problems. Transitioning into Engineering, I deepened my expertise in Android development, backend systems, and automation tools. I'm passionate about creating elegant solutions to complex problems, especially in the mobile and AI automation space. Every project I build is a step toward mastering my craft.
-                        </p>
-                    </div>
-
-                    <!-- 3. Skills Overview -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">Core Skills</h3>
-                        <ul id="skills-container">
-                        </ul>
-                    </div>
-
-                    <!-- 4. Work Philosophy -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">My Philosophy</h3>
-                        <p>
-                            I build apps that solve real-life problems with simplicity and reliability. Clean code, thoughtful design, and user-focused development are the pillars of my work. I believe technology should empower people, not complicate their lives.
-                        </p>
-                    </div>
-
-                    <!-- 5. Currently Working On -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">What I'm Working On</h3>
-                        <ul class="work-highlights">
-                            <li><strong>AI Voice Assistant</strong> — Java-based automation & intelligent task execution</li>
-                            <li><strong>Salon Booking Platform</strong> — Full-stack web & mobile solution</li>
-                            <li><strong>Automation Tools</strong> — AccessibilityService-powered mobile automation</li>
-                            <li><strong>Open Source Contributions</strong> — Building & sharing developer tools</li>
-                            <li><strong>Engineering Preparation</strong> — Strengthening DSA & system design skills</li>
-                        </ul>
-                    </div>
-
-                    <!-- 6. Personality -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">Beyond Code</h3>
-                        <p>
-                            I'm curious by nature and self-driven in learning. I enjoy exploring new technologies, solving challenging problems, and exploring diverse interests like adventure, language learning (English & Japanese), and building tools that make life easier. I thrive on collaboration and love working with people who share a passion for quality and innovation.
-                        </p>
-                    </div>
-
-                    <!-- 7. Future Goals -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">Vision for the Future</h3>
-                        <p>
-                            My long-term goal is to build scalable, impactful tech products that solve real-world problems at scale. I aspire to create companies and products that touch millions of lives, combining technical excellence with genuine user value. I want to be a leader in the Android & AI automation space, known for innovation and reliability.
-                        </p>
-                    </div>
-
-                    <!-- 8. Call to Action -->
-                    <div class="about-section-block">
-                        <h3 class="section-title">Let's Collaborate</h3>
-                        <p>
-                            I'm always open to exciting collaborations, internships, freelance projects, and creative tech challenges. If you have an idea or project in mind, I'd love to hear from you and explore how we can build something amazing together.
-                        </p>
-                    </div>
-                    
-                    <div style="margin-top: 40px;">
-                        <a href="projects.html" class="btn">View projects</a>
-                        <a href="contact.html" class="btn btn-primary">Let's Connect</a>
-                    </div>
-                </div>
-
             </div>
-            
-            <div class="social">
-                 <div class="social-link"><a href="https://www.instagram.com/kk2.1.5_kishan?igsh=c3E1aW9icWgxeWNn"><i class="fa-brands fa-instagram"></i></a></div>
-                 <div class="social-link"><a href="https://www.linkedin.com/in/kishan-kumar-067013263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a></div>
-                 <div class="social-link"><i class="fa-brands fa-twitter"></i></div>
-                 <div class="social-link"><a href="http://t.me/kk215Anonymous"><i class="fa-brands fa-telegram"></i></a></div>
-                 <div class="social-link"><a href="https://github.com/Kishan0118"><i class="fa-brands fa-github"></i></a></div>
+        </section>
+        <section class="container section compact">
+            <div class="section-head reveal">
+                <div><p class="section-kicker">My toolkit</p><h2>Tools I use and keep learning.</h2><p>Grouped by the kind of work they help me do.</p></div>
             </div>
-        </div>
-        </div>
-
-    <script src="about.js"></script>
-
-    <script src="footer-script.js"></script>
-
-    <!-- Footer -->
-    <!-- Footer Placeholder -->
+            <div class="skill-groups" id="skills-groups" aria-live="polite"></div>
+        </section>
+        <section class="container section compact">
+            <div class="section-head reveal">
+                <div><p class="section-kicker">What matters to me</p><h2>Useful, thoughtful, and built with care.</h2></div>
+            </div>
+            <div class="value-grid">
+                <article class="value-card reveal"><h3>Useful over complicated</h3><p>Start with what a person needs to do, then make the path clear.</p></article>
+                <article class="value-card reveal reveal-delay-1"><h3>Keep learning</h3><p>Use projects to explore new tools and strengthen the fundamentals.</p></article>
+                <article class="value-card reveal reveal-delay-2"><h3>Make it reliable</h3><p>Pay attention to the details that make an app easier to trust and use.</p></article>
+            </div>
+        </section>
+        <section class="container section compact">
+            <div class="cta-panel reveal">
+                <div><p class="section-kicker">Want to connect?</p><h2>I’m always happy to talk about Android and ideas worth building.</h2></div>
+                <a class="btn btn-primary" href="contact.html">Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+    </main>
     <div id="footer-placeholder"></div>
-
-    <script src="footer-loader.js"></script>
+    <script src="about.js" defer></script>
+    <script src="ribbon-glow.js" defer></script>
+    <script src="footer-loader.js" defer></script>
     <script src="menu.js" defer></script>
-
 </body>
 </html>

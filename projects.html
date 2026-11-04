@@ -3,78 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Explore Kishan Kumar's software projects in Android, Java, Spring Boot, backend APIs, and web development.">
+    <meta name="theme-color" content="#0b1020">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Explore Android applications, backend services, automation tools, and web projects by Kishan Kumar.">
     <link rel="canonical" href="https://www.kishankumar.online/projects.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Kishan Kumar">
-    <meta property="og:title" content="Software Projects | Kishan Kumar">
-    <meta property="og:description" content="Explore Android, Java, Spring Boot, backend API, and web development projects by Kishan Kumar.">
+    <meta property="og:title" content="Projects — Kishan Kumar">
+    <meta property="og:description" content="Selected Android, backend, automation, and web development projects.">
     <meta property="og:url" content="https://www.kishankumar.online/projects.html">
-    <meta property="og:image" content="https://www.kishankumar.online/image/kk_bg_remove_half.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Software Projects | Kishan Kumar">
-    <meta name="twitter:description" content="Explore Android, Java, Spring Boot, backend API, and web development projects by Kishan Kumar.">
-    <meta name="twitter:image" content="https://www.kishankumar.online/image/kk_bg_remove_half.png">
-    <title>Software Projects | Kishan Kumar</title>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8T8GW906N4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        gtag('js', new Date());
-        gtag('config', 'G-8T8GW906N4', { 'anonymize_ip': true });
-    </script>
+    <meta property="og:image" content="https://www.kishankumar.online/image/portfolio-social.svg">
+    <link rel="stylesheet" href="style.css">
+    <title>Projects — Kishan Kumar</title>
 </head>
-<body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                <h1>*Kis<span>han.</span></h1>
-            </div>
-            <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html" class="active-link">Projects</a></li>
-                    <li><a href="experience.html">Experience</a></li>
-                </ul>
+<body class="ribbon-glow-page-active">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="index.html" aria-label="Kishan Kumar home"><span>Kishan<span class="brand-mark">.</span><span class="brand-subtitle">Android developer</span></span></a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+            <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="about.html">About</a><a href="experience.html">Journey</a><a class="btn btn-secondary" href="contact.html">Let’s talk <span class="arrow" aria-hidden="true">↗</span></a>
             </nav>
-            <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </header>
-        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
-
-        <div class="main-content">
-            <div class="projects-section">
-                <div class="line"></div>
-                <h1>My <span>Projects</span></h1>
-                
-                <div class="filter-controls">
-                    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
-                    <button class="filter-btn" data-filter="websites" aria-pressed="false">Websites</button>
-                    <button class="filter-btn" data-filter="android" aria-pressed="false">Android</button>
-                    <button class="filter-btn" data-filter="ai" aria-pressed="false">AI</button>
-                    <button class="filter-btn" data-filter="automation" aria-pressed="false">Automation</button>
-                </div>
-
-                <p id="projects-status" class="projects-status" role="status" aria-live="polite">Loading projects…</p>
-                <div class="projects-grid" id="projects-grid"></div>
-            </div>
         </div>
-    </div>
-
-    <script src="project-image-url.js" defer></script>
-    <script src="projects.js" defer></script>
-    <script src="footer-script.js"></script>
-
-    <!-- Footer Placeholder -->
+        <button class="menu-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
+    </header>
+    <main id="main-content" class="page-shell">
+        <div class="ribbon-glow-stage ribbon-glow-page-stage" id="ribbon-glow-stage" aria-hidden="true">
+            <canvas class="ribbon-glow-canvas" id="ribbon-glow-canvas"></canvas>
+        </div>
+        <section class="page-hero">
+            <div class="container">
+                <p class="eyebrow">Project archive</p>
+                <h1>Things I’ve <span class="accent">built.</span></h1>
+                <p class="lead">A growing collection of Android apps, backend work, websites, and experiments. Open a project to see the details.</p>
+            </div>
+        </section>
+        <section class="container page-content">
+            <div class="filter-controls" role="group" aria-label="Filter projects">
+                <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All work</button>
+                <button class="filter-btn" type="button" data-filter="android" aria-pressed="false">Android</button>
+                <button class="filter-btn" type="button" data-filter="websites" aria-pressed="false">Websites</button>
+                <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI</button>
+                <button class="filter-btn" type="button" data-filter="automation" aria-pressed="false">Automation</button>
+            </div>
+            <div class="project-grid" id="projects-grid" aria-live="polite"></div>
+            <p class="project-slider-hint">Scroll, drag, or use the arrow keys to browse projects.</p>
+            <div class="projects-status" id="projects-status" role="status" aria-live="polite">Loading projects…</div>
+        </section>
+    </main>
     <div id="footer-placeholder"></div>
-
-    <script src="footer-loader.js"></script>
+    <script src="ribbon-glow.js" defer></script>
+    <script src="project-image-url.js" defer></script>
+    <script src="project-copy.js" defer></script>
+    <script src="project-slider.js" defer></script>
+    <script src="projects.js" defer></script>
+    <script src="footer-loader.js" defer></script>
     <script src="menu.js" defer></script>
-
 </body>
 </html>

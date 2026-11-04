@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 156" fill="none">
+  <defs>
+    <linearGradient id="shell" x1="22" y1="18" x2="96" y2="138" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B4E9FF"/>
+      <stop offset=".48" stop-color="#69B9FF"/>
+      <stop offset="1" stop-color="#4779F4"/>
+    </linearGradient>
+    <linearGradient id="visor" x1="32" y1="43" x2="88" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#152849"/>
+      <stop offset="1" stop-color="#0A1731"/>
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="42" y1="56" x2="77" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8FCFF"/>
+      <stop offset="1" stop-color="#85E8FF"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="60" cy="147" rx="28" ry="5" fill="#06122C" fill-opacity=".38"/>
+  <circle cx="60" cy="14" r="3" fill="#7BF2E0"/>
+  <path d="M60 17v7" stroke="#8EDBFF" stroke-linecap="round" stroke-width="3"/>
+
+  <g stroke="#D5F4FF" stroke-opacity=".48" stroke-width="1.2">
+    <path d="M31 119c-7-1-11-5-12-11"/>
+    <path d="M89 119c7-1 11-5 12-11"/>
+  </g>
+  <path d="M40 119h13v20c0 4-3 7-7 7s-7-3-7-7v-20Zm27 0h13v20c0 4-3 7-7 7s-7-3-7-7v-20Z" fill="url(#shell)" stroke="#C9F1FF" stroke-opacity=".65" stroke-width="1.5"/>
+  <path d="M44 138h7m21 0h7" stroke="#E5F9FF" stroke-linecap="round" stroke-width="2"/>
+
+  <path d="M35 92h50c9 0 15 6 15 15v16c0 7-6 12-13 12H33c-7 0-13-5-13-12v-16c0-9 6-15 15-15Z" fill="url(#shell)" stroke="#D3F4FF" stroke-opacity=".72" stroke-width="2"/>
+  <path d="M42 101h36c5 0 9 4 9 9v6c0 5-4 9-9 9H42c-5 0-9-4-9-9v-6c0-5 4-9 9-9Z" fill="#173B76" fill-opacity=".82"/>
+  <path d="m47 106 5 4-5 4m13 1h9" stroke="#DDFBFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"/>
+  <circle cx="78" cy="113" r="2" fill="#6AF0D1"/>
+
+  <path d="M37 26c-9 0-16 7-16 16v23c0 5-4 9-7 13-4 6-1 14 5 18 3 2 7 3 11 3h60c4 0 8-1 11-3 6-4 9-12 5-18-3-4-7-8-7-13V42c0-9-7-16-16-16h-3C76 17 68 12 60 12S44 17 40 26h-3Z" fill="url(#shell)" stroke="#D5F4FF" stroke-width="2"/>
+  <path d="M44 28c4-6 10-9 16-9s12 3 16 9" stroke="#E5FAFF" stroke-linecap="round" stroke-opacity=".68" stroke-width="2"/>
+  <path d="M28 45c0-6 5-11 11-11h42c6 0 11 5 11 11v26c0 7-5 12-12 12H40c-7 0-12-5-12-12V45Z" fill="url(#visor)" stroke="#BDEEFF" stroke-opacity=".66" stroke-width="2"/>
+  <path d="m45 53 8 8-8 8m18 1h13" stroke="url(#screenGlow)" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <circle cx="36" cy="42" r="2" fill="#E9FDFF" fill-opacity=".75"/>
+  <circle cx="84" cy="42" r="2" fill="#E9FDFF" fill-opacity=".75"/>
+  <path d="M31 91c7 4 17 6 29 6s22-2 29-6" stroke="#E8FAFF" stroke-opacity=".35" stroke-width="1.5"/>
+</svg>

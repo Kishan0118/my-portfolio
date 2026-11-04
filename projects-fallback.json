@@ -1,0 +1,47 @@
+[
+  {
+    "id": "SocwVxkPJjVI8gPL1Slc",
+    "name": "E-Commerce Web App",
+    "category": "websites",
+    "tech": ["React", "Node.js", "MongoDB", "Redux"],
+    "description": "A full-stack shopping experience built with React and Redux, backed by a Node.js and MongoDB service.",
+    "screenshots": ["https://kishanbackend.onrender.com/image/ecommers_m.jpg"],
+    "createdAt": 1704067200000
+  },
+  {
+    "id": "U6kMQPBKnNLjzjwLMaP4",
+    "name": "Weather App",
+    "category": "android",
+    "tech": ["java", "android sdk", "firebase", "xml"],
+    "description": "A daily weather app that brings current conditions and multi-day forecasts into a clear Android interface.",
+    "screenshots": ["https://kishanbackend.onrender.com/image/weatherapp.png"],
+    "createdAt": 1704067200000
+  },
+  {
+    "id": "fU0gkQFnfsDjtN3wPb1c",
+    "name": "Image Recognition AI",
+    "category": "ai",
+    "tech": ["python", "TensorFlow", "Flask"],
+    "description": "A web-based image recognition service that classifies images in real time using a deep learning model.",
+    "screenshots": ["https://kishanbackend.onrender.com/image/imagereconize.jpg"],
+    "createdAt": 1704067200000
+  },
+  {
+    "id": "rNVu2XDaWXpbFLKaP4LE",
+    "name": "Web Scraping Automation Bot",
+    "category": "automation",
+    "tech": ["Python", "selenium", "Pandas"],
+    "description": "An automation tool that gathers information from multiple websites and organizes the results into CSV files.",
+    "screenshots": ["https://kishanbackend.onrender.com/image/webbot.jpg"],
+    "createdAt": 1704067200000
+  },
+  {
+    "id": "uP4IOTJW5MMGRIKwIMxe",
+    "name": "Task Manager Android App",
+    "category": "android",
+    "tech": ["java", "Android SDK", "SQLite"],
+    "description": "An Android task manager for everyday planning, with task data stored locally in SQLite.",
+    "screenshots": ["https://kishanbackend.onrender.com/image/androidapp.jpg"],
+    "createdAt": 1704067200000
+  }
+]

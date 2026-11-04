@@ -1,23 +1,32 @@
-// about.js
+document.addEventListener("DOMContentLoaded", () => {
+    const skillsContainer = document.getElementById("skills-groups");
+    if (!skillsContainer) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Define your skills
-    const skills = [
-        "HTML5", "CSS3", "JavaScript", "Responsive Design", 
-        "Google Analytics setup", "Java (strong)", 
-         "DataBase Connection", "Authentication", "MVC Architecture", "Spring Boot", "MySQL/Firebase",
-        "MongoDB", "Android App Development(java)", 
-        "Git", "GitHub", "UI/UX","ChatGPT Automation via AccessibilityService(AI Agents)",
-        "Figma", "REST APIs", "Fast learner", "Problem Solver", "Independent developer vibes"
+    const groups = [
+        { title: "Android development", color: "var(--mint)", skills: ["Java", "Kotlin", "Android SDK", "AccessibilityService"] },
+        { title: "Backend and APIs", color: "var(--blue)", skills: ["Spring Boot · learning", "REST API development", "Backend services", "MVC Architecture"] },
+        { title: "Data", color: "var(--coral)", skills: ["Firebase", "MySQL", "MongoDB"] },
+        { title: "Web and tools", color: "var(--blue)", skills: ["HTML", "CSS", "JavaScript", "Git", "GitHub", "Figma"] }
     ];
 
-    const skillsContainer = document.getElementById('skills-container');
+    groups.forEach((group, index) => {
+        const article = document.createElement("article");
+        article.className = "skill-group reveal" + (index > 1 ? " reveal-delay-1" : "");
+        article.style.setProperty("--skill-color", group.color);
 
-    // 2. Loop through the skills and create list items (bubbles)
-    skills.forEach(skill => {
-        const skillItem = document.createElement('li');
-        skillItem.className = 'skill-item'; // Use the CSS class defined in style.css
-        skillItem.textContent = skill;
-        skillsContainer.appendChild(skillItem);
-    });
+        const heading = document.createElement("h3");
+        heading.textContent = group.title;
+        const list = document.createElement("ul");
+        list.className = "skill-list";
+        group.skills.forEach((skill) => {
+            const item = document.createElement("li");
+            item.className = "skill-tag";
+            item.textContent = skill;
+            list.appendChild(item);
+        });
+
+        article.append(heading, list);
+        skillsContainer.appendChild(article);
+        requestAnimationFrame(() => article.classList.add("is-visible"));
+    });
 });

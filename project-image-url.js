@@ -1,9 +1,14 @@
 window.resolvePortfolioImageUrl = function (value) {
     if (typeof value !== 'string' || !value.trim()) return null;
+    if (value.trim() === '#') return null;
 
     try {
         const imageUrl = new URL(value.trim(), 'https://kishanbackend.onrender.com');
         const hostname = imageUrl.hostname.toLowerCase().replace(/\.$/, '');
+        if (
+            hostname === 'kishanbackend.onrender.com'
+            && imageUrl.pathname === '/api/projects'
+        ) return null;
 
         if (
             imageUrl.protocol === 'http:'
